@@ -1,6 +1,5 @@
 package org.projet.mediatheque.entity;
 
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
