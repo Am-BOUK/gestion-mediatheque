@@ -9,7 +9,6 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "dvd")
-@DiscriminatorValue("DVD")
 public class Dvd extends Item{
 	
 	/**

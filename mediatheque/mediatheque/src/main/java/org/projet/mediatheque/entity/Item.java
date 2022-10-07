@@ -18,7 +18,6 @@ import lombok.Data;
 @Data
 @Table(name = "item")
 @Inheritance(strategy = InheritanceType.JOINED) // creer Une table par classe
-@DiscriminatorColumn(name="item_type")
 public abstract class Item implements Serializable {
 
 	@Id

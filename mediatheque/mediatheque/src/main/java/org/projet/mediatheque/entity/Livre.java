@@ -9,7 +9,6 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "livre")
-@DiscriminatorValue("L")
 public class Livre extends Item{
 	private String ecrivain;
 	private Long numIsbn;

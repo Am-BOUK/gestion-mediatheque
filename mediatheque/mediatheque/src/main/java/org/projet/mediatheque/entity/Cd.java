@@ -9,7 +9,6 @@ import lombok.Data;
 @Entity
 @Data
 @Table(name = "cd")
-@DiscriminatorValue("CD")
 public class Cd extends Item {
 
 	private String artisteGroup;
