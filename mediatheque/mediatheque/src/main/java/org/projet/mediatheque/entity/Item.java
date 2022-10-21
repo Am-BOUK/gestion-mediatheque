@@ -36,7 +36,6 @@ public abstract class Item implements Serializable {
 	private String titre;
 	private Long nombreExemplaire;
 	private Date dateParution;
-	private boolean disponible;
 
 	@ManyToMany(mappedBy = "items", fetch = FetchType.LAZY)
 	@JsonIgnore

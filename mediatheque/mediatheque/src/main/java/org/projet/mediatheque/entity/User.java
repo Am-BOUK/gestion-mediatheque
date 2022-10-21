@@ -29,5 +29,7 @@ public class User {
 	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE)
 	private Set<Emprunt> emprunts = new HashSet<>();
+
+	
 	
 }
