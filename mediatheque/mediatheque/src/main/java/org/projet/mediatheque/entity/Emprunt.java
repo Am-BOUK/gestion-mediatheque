@@ -36,4 +36,11 @@ public class Emprunt {
 	@ManyToMany
 	@JoinColumn(name = "items_id")
 	private Set<Item> items;
+
+	@Override
+	public String toString() {
+		return "Emprunt [id=" + id + ", dateEmprunt=" + dateEmprunt + ", dateRetour=" + dateRetour + ", user=" + user
+				+ ", items=" + items + "]";
+	}
+
 }
