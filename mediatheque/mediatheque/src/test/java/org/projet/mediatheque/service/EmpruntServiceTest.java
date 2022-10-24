@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.projet.mediatheque.entity.Emprunt;
 import org.projet.mediatheque.exception.ItemNotAvailableException;
@@ -42,7 +41,7 @@ public class EmpruntServiceTest {
 	public void effectuerEmprunteTest()
 			throws ItemNotFoundException, ItemNotAvailableException, NumberItemReachedException {
 		List<Long> ids = new ArrayList<Long>();
-		ids.add(1l);
+		ids.add(6l);
 		ids.add(3l);
 
 		Emprunt faireEmprunt = empruntService.effectuerEmprunte(3l, ids);
@@ -79,15 +78,14 @@ public class EmpruntServiceTest {
 		}
 	}
 
-	@Disabled
 	@Test
 	public void effectuerEmprunteTest_whenNotAvailable_shouldException()
 			throws ItemNotFoundException, NumberItemReachedException {
 		List<Long> ids = new ArrayList<Long>();
-		ids.add(1l);
+		ids.add(2l);
 
 		try {
-			empruntService.effectuerEmprunte(3l, ids);
+			empruntService.effectuerEmprunte(1l, ids);
 		} catch (ItemNotAvailableException e) {
 			assertTrue(e instanceof ItemNotAvailableException);
 			assertTrue(e.getMessage().contains("item n'est pas disponible !"));
@@ -101,8 +99,8 @@ public class EmpruntServiceTest {
 		List<Long> ids = new ArrayList<Long>();
 		ids.add(1l);
 		ids.add(1l);
-		ids.add(1l);
-		ids.add(1l);
+		ids.add(5l);
+		ids.add(6l);
 
 		try {
 			empruntService.effectuerEmprunte(3l, ids);
@@ -111,6 +109,20 @@ public class EmpruntServiceTest {
 			assertTrue(e.getMessage().contains("Vous ne pouvez pas emprunter plus de 3 fois "));
 		} 
 
+	}
+	
+	@Test
+	public void restituerEmprunteTest() throws ItemNotFoundException {
+		empruntService.restituerEmprunte(3l);
+	}
+	
+	@Test
+	public void restituerEmprunteTest_whenItemNotFound_shouldReturnException() {
+		try {
+			empruntService.restituerEmprunte(0l);
+		} catch (ItemNotFoundException e) {
+			assertTrue(e instanceof ItemNotFoundException);
+		}
 	}
 
 }

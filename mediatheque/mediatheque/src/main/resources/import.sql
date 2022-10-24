@@ -29,8 +29,13 @@ insert into LIVRE (ECRIVAIN, NUM_ISBN,ID) values ('ecrivain1', 140,7);
 insert into LIVRE (ECRIVAIN, NUM_ISBN,ID) values ('ecrivain2', 150,8);
 insert into LIVRE (ECRIVAIN, NUM_ISBN,ID) values ('ecrivain3', 160,9);
 
-insert into EMPRUNT(ID, DATE_EMPRUNT, DATE_RETOUR, USER_id) values (1, '2022-10-21','2022-10-21',1);
+insert into EMPRUNT(DATE_EMPRUNT, DATE_RETOUR, USER_id) values ('2022-10-21','2022-10-21',1);
+insert into EMPRUNT(DATE_EMPRUNT, DATE_RETOUR, USER_id) values ('2022-10-21','2022-10-21',2);
+insert into EMPRUNT(DATE_EMPRUNT, USER_id) values ('2022-10-21',1);
+
 insert into EMPRUNT_ITEMS(EMPRUNTS_ID, ITEMS_ID) values (1, 1);
 insert into EMPRUNT_ITEMS(EMPRUNTS_ID, ITEMS_ID) values (1, 2);
+insert into EMPRUNT_ITEMS(EMPRUNTS_ID, ITEMS_ID) values (3, 4);
+insert into EMPRUNT_ITEMS(EMPRUNTS_ID, ITEMS_ID) values (3, 9);
 
 

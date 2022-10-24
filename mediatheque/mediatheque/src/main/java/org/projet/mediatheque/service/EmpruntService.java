@@ -100,19 +100,16 @@ public class EmpruntService {
 		Emprunt empruntFound = empruntRepository.findById(idEmprunt)
 				.orElseThrow(() -> new ItemNotFoundException("Emprunt n'existe pas !"));
 
+		Date retourDate = new Date();
+		empruntFound.setDateRetour(retourDate);
+		empruntRepository.save(empruntFound);
 		for (Item item : empruntFound.getItems()) {
-//			Long idItem = item.getId();
-			Date retourDate = new Date();
-			empruntFound.setDateRetour(retourDate);
-//			empruntRepository.deleteById(idItem);
-//			Calendar cal = Calendar.getInstance();
-//			cal.set(Calendar.DAY_OF_MONTH, cal.get(Calendar.DAY_OF_MONTH + 7));
-//			Date dateRetour = cal.getTime();
-			if (retourDate.getDay() - empruntFound.getDateEmprunt().getDate() > 7) {
-				System.out.println("Attention, vous avez dépassé la date à retourner l'item !");
-			}
 			item.setNombreExemplaire(item.getNombreExemplaire() + 1);
 			itemRepository.save(item);
+		}
+
+		if (retourDate.getDay() - empruntFound.getDateEmprunt().getDate() > 7) {
+			System.out.println("Attention, vous avez dépassé la date à retourner l'item !");
 		}
 
 	}
