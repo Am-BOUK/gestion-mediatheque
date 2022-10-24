@@ -20,7 +20,7 @@ public class ItemRepositoryTest {
 	public void findDisponiblesTest() {
 		int numbre_copies = 0;
 		
-		List<Item> findDisponiblesResult = itemRepository.findDisponibles();	
+		List<Item> findDisponiblesResult = itemRepository.findDisponibles().get();	
 		for (Item item : findDisponiblesResult) {
 			if(item.getNombreExemplaire()>0) {
 				numbre_copies++;
