@@ -8,7 +8,6 @@ public class NumberItemReachedException extends Exception {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private String message;
 
 	public NumberItemReachedException(String message) {
 		super(message);
