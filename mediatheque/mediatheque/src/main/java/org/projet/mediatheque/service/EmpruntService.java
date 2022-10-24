@@ -49,7 +49,7 @@ public class EmpruntService {
 	 * @throws ItemNotAvailableException
 	 * @throws NumberItemReachedException
 	 */
-	public Emprunt effectuerEmprunte(long idUser, List<Long> idItems)
+	public Emprunt effectuerEmprunte(Long idUser, List<Long> idItems)
 			throws ItemNotFoundException, ItemNotAvailableException, NumberItemReachedException {
 		User userFound = userRepository.findById(idUser)
 				.orElseThrow(() -> new ItemNotFoundException("utilisateur n'existe pas !"));
@@ -59,7 +59,7 @@ public class EmpruntService {
 		for (Emprunt emprunt : empruntList) {
 			countItemsEmpruntes += emprunt.getItems().size();
 		}
-		if (countItemsEmpruntes + idItems.size() > 2) {
+		if (countItemsEmpruntes + idItems.size() > 3) {
 			throw new NumberItemReachedException("Vous ne pouvez pas emprunter plus de 3 fois !");
 		}
 

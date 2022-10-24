@@ -32,3 +32,5 @@ insert into LIVRE (ECRIVAIN, NUM_ISBN,ID) values ('ecrivain3', 160,9);
 insert into EMPRUNT(ID, DATE_EMPRUNT, DATE_RETOUR, USER_id) values (1, '2022-10-21','2022-10-21',1);
 insert into EMPRUNT_ITEMS(EMPRUNTS_ID, ITEMS_ID) values (1, 1);
 insert into EMPRUNT_ITEMS(EMPRUNTS_ID, ITEMS_ID) values (1, 2);
+
+

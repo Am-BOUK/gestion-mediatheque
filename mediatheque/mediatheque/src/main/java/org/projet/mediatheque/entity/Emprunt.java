@@ -35,7 +35,7 @@ public class Emprunt {
 
 	@ManyToMany
 	@JoinColumn(name = "items_id")
-	private Set<Item> items;
+	private Set<Item> items = new HashSet<Item>();
 
 	@Override
 	public String toString() {
