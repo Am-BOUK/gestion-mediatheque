@@ -42,7 +42,6 @@ public class EmpruntServiceTest {
 	public void effectuerEmprunteTest()
 			throws ItemNotFoundException, ItemNotAvailableException, NumberItemReachedException {
 		List<Long> ids = new ArrayList<Long>();
-		ids.add(6l);
 		ids.add(3l);
 
 		Emprunt faireEmprunt = empruntService.effectuerEmprunte(3l, ids);
@@ -72,7 +71,7 @@ public class EmpruntServiceTest {
 		ids.add(0l);
 
 		try {
-			empruntService.effectuerEmprunte(3l, ids);
+			empruntService.effectuerEmprunte(2l, ids);
 		} catch (ItemNotFoundException e) {
 			assertTrue(e instanceof ItemNotFoundException);
 			assertTrue(e.getMessage().contains("item n'existe pas !"));
