@@ -99,10 +99,10 @@ public class EmpruntService {
 
 		Emprunt empruntFound = empruntRepository.findById(idEmprunt)
 				.orElseThrow(() -> new ItemNotFoundException("Emprunt n'existe pas !"));
-
 		Date retourDate = new Date();
 		empruntFound.setDateRetour(retourDate);
 		empruntRepository.save(empruntFound);
+		
 		for (Item item : empruntFound.getItems()) {
 			item.setNombreExemplaire(item.getNombreExemplaire() + 1);
 			itemRepository.save(item);

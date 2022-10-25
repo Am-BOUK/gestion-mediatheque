@@ -14,13 +14,10 @@ public class UserService {
 	private UserRepository userRepository;
 
 	public User findUserByLogin(String login) throws ItemNotFoundException {
-		Optional<User> userFound = userRepository.findUserByLogin(login);
-		if (userFound.isEmpty()) {
-			System.out.println("l'utilisateur " + login + ", n'existe pas !");
-			throw new ItemNotFoundException(login + ", not found !");
-		} else {
-			return userFound.get();
-		}
+		User userFound = userRepository.findUserByLogin(login)
+				.orElseThrow(() -> new ItemNotFoundException("User n'existe pas !"));
+		return userFound;
+
 	}
 
 }

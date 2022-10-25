@@ -71,7 +71,7 @@ public class EmpruntServiceTest {
 		ids.add(0l);
 
 		try {
-			empruntService.effectuerEmprunte(1l, ids);
+			empruntService.effectuerEmprunte(3l, ids);
 		} catch (ItemNotFoundException e) {
 			assertTrue(e instanceof ItemNotFoundException);
 			assertTrue(e.getMessage().contains("item n'existe pas !"));
@@ -85,7 +85,7 @@ public class EmpruntServiceTest {
 		ids.add(2l);
 
 		try {
-			empruntService.effectuerEmprunte(1l, ids);
+			empruntService.effectuerEmprunte(3l, ids);
 		} catch (ItemNotAvailableException e) {
 			assertTrue(e instanceof ItemNotAvailableException);
 			assertTrue(e.getMessage().contains("item n'est pas disponible !"));
