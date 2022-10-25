@@ -12,6 +12,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -29,8 +31,8 @@ public class EmpruntController {
 		return new ResponseEntity<List<Emprunt>>(empruntesListByUserId, HttpStatus.OK);
 	}
 
-	@GetMapping(value = "/emprunt/{idUser}/{idItems}")
-	public ResponseEntity<Emprunt> effectuerEmprunte(@PathVariable Long idUser, @PathVariable List<Long> idItems)
+	@PostMapping(value = "/emprunt/{idUser}/{idItems}")
+	public ResponseEntity<Emprunt> effectuerEmprunte(@PathVariable Long idUser, @RequestBody List<Long> idItems)
 			throws ItemNotFoundException, ItemNotAvailableException, NumberItemReachedException {
 		Emprunt emprunt = empruntService.effectuerEmprunte(idUser, idItems);
 

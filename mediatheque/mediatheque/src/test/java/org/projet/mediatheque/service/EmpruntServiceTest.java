@@ -1,6 +1,7 @@
 package org.projet.mediatheque.service;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.ArrayList;
@@ -110,11 +111,14 @@ public class EmpruntServiceTest {
 		} 
 
 	}
-	
-	@Test
-	public void restituerEmprunteTest() throws ItemNotFoundException {
-		empruntService.restituerEmprunte(3l);
-	}
+//	
+//	@Test
+//	public void restituerEmprunteTest() throws ItemNotFoundException {
+//		List<Emprunt> empruntList = emp
+//		empruntService.restituerEmprunte(3l);
+//		assertNull();
+//		
+//	}
 	
 	@Test
 	public void restituerEmprunteTest_whenItemNotFound_shouldReturnException() {
