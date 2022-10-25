@@ -11,6 +11,7 @@ import org.projet.mediatheque.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class ItemService {
 	@Autowired
@@ -23,18 +24,24 @@ public class ItemService {
 	 */
 	public List<Item> getAllAvailableItems() throws ItemNotFoundException {
 		List<Item> getAllAvailableItems = itemRepository.findDisponibles()
-				.orElseThrow(() -> new ItemNotFoundException("La liste des items disponible est vide !"));
+				.orElseThrow(() -> new ItemNotFoundException("La liste des items est vide !"));
 		return getAllAvailableItems;
 
 	}
 
 	/**
 	 * Get Items By Date of Parution
+	 * @throws ParseException 
 	 * 
 	 * @throws ItemNotFoundException
 	 */
 	public List<Item> getItemsByDateParution(String dateStg) throws ParseException {
-		Date date = new SimpleDateFormat("dd/MM/yyyy").parse(dateStg);
+		Date date;
+		try {
+			date = new SimpleDateFormat("dd-MM-yyyy").parse(dateStg);
+		} catch (ParseException e) {
+			throw new ParseException("Veuillez entrer une date valide sous forme : dd-MM-yyyy !",0);
+		}
 
 		return itemRepository.findItemsByDateParution(date);
 
