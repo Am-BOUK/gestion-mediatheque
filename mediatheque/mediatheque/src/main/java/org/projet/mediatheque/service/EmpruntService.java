@@ -1,15 +1,13 @@
 package org.projet.mediatheque.service;
 
-import java.time.LocalDateTime;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 import org.projet.mediatheque.entity.Emprunt;
 import org.projet.mediatheque.entity.Item;
 import org.projet.mediatheque.entity.User;
-import org.projet.mediatheque.exception.ItemNotFoundException;
 import org.projet.mediatheque.exception.ItemNotAvailableException;
+import org.projet.mediatheque.exception.ItemNotFoundException;
 import org.projet.mediatheque.exception.NumberItemReachedException;
 import org.projet.mediatheque.repository.EmpruntRepository;
 import org.projet.mediatheque.repository.ItemRepository;
@@ -76,7 +74,6 @@ public class EmpruntService {
 
 		Emprunt newEmprunt = new Emprunt();
 		newEmprunt.setDateEmprunt(dateEmprunt);
-//		newEmprunt.setDateRetour(dateRetour);
 		newEmprunt.setUser(userFound);
 		for (Long idItem : idItems) {
 			Item itemFound = itemRepository.findById(idItem)
@@ -102,7 +99,7 @@ public class EmpruntService {
 		Date retourDate = new Date();
 		empruntFound.setDateRetour(retourDate);
 		empruntRepository.save(empruntFound);
-		
+
 		for (Item item : empruntFound.getItems()) {
 			item.setNombreExemplaire(item.getNombreExemplaire() + 1);
 			itemRepository.save(item);
