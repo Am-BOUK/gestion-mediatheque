@@ -26,7 +26,7 @@ public class UserServiceTest {
 			userService.findUserByLogin("unknown@email.com");
 		} catch (ItemNotFoundException e) {
 			assertTrue(e instanceof ItemNotFoundException);
-			assertTrue(e.getMessage().contains("unknown@email.com, not found !"));
+			assertTrue(e.getMessage().contains("User : unknown@email.com,  n'existe pas !"));
 		}
 	}
 
