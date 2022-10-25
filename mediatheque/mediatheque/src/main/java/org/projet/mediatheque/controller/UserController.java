@@ -29,4 +29,5 @@ public class UserController {
 
 		return new ResponseEntity<User>(userByLogin, HttpStatus.OK);
 	}
+
 }
