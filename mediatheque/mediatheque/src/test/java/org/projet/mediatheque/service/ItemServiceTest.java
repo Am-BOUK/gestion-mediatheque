@@ -35,6 +35,7 @@ public class ItemServiceTest {
 			itemService.getItemsByDateParution("2001-10-10");
 		} catch (ParseException e) {
 			assertTrue(e instanceof ParseException);
+			assertTrue(e.getMessage().contains("Veuillez entrer une date valide sous forme : dd-MM-yyyy !"));
 		}
 	}
 
