@@ -31,7 +31,7 @@ public class EmpruntController {
 		return new ResponseEntity<List<Emprunt>>(empruntesListByUserId, HttpStatus.OK);
 	}
 
-	@PostMapping(value = "/emprunt/{idUser}/{idItems}")
+	@PostMapping(value = "/emprunt/{idUser}")
 	public ResponseEntity<Emprunt> effectuerEmprunte(@PathVariable Long idUser, @RequestBody List<Long> idItems)
 			throws ItemNotFoundException, ItemNotAvailableException, NumberItemReachedException {
 		Emprunt emprunt = empruntService.effectuerEmprunte(idUser, idItems);
